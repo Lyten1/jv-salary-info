@@ -23,8 +23,7 @@ public class SalaryInfo {
                 if (rowParts[1].equals(name)) {
                     LocalDate workDate = LocalDate.parse(rowParts[0], formatter);
 
-                    if (workDate.isAfter(dateF.minusDays(1))
-                            && workDate.isBefore(dateT.plusDays(1))) {
+                    if (!workDate.isBefore(dateF) && !workDate.isAfter(dateT)) {
                         earning += Integer.parseInt(rowParts[2]) * Integer.parseInt(rowParts[3]);
                     }
                 }
